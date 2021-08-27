@@ -31,12 +31,12 @@ namespace PacketHandling
             Dictionary[1] = new Func<byte[], float>(GetFloat);
             Dictionary[2] = new Func<byte[], string>(GetString);
             Dictionary[3] = new Func<byte[], string>(GetASCIIString);
-            Dictionary[4] = new Func<byte[], sbyte>(GetSByte);
+            Dictionary[4] = new Func<byte[], byte>(GetUInt8);
             TypeDictionary[0] = typeof(int);
             TypeDictionary[1] = typeof(float);
             TypeDictionary[2] = typeof(string);
             TypeDictionary[3] = typeof(string);
-            TypeDictionary[4] = typeof(sbyte);
+            TypeDictionary[4] = typeof(byte);
         }
 
         #region Private
@@ -61,10 +61,10 @@ namespace PacketHandling
             return ASCIIEncoding.ASCII.GetString(_bytes);
         }
 
-        private sbyte GetSByte(byte[] _bytes)
+        private byte GetUInt8(byte[] _bytes)
         {
          
-            return unchecked((sbyte)_bytes[0]);
+            return _bytes[0];
         }
 
         #endregion
