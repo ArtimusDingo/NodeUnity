@@ -13,7 +13,6 @@ namespace PacketHandling
         public object value;
         byte[] bytes;
         
-
         public Packet(int _type, byte[] _bytes)
         {
             value = Convert.ChangeType(PacketHandler.Dictionary[_type].DynamicInvoke(_bytes), PacketHandler.TypeDictionary[_type]);
@@ -70,6 +69,8 @@ namespace PacketHandling
 
         #endregion
 
+        #region Public
+
         public byte[] GetByteSection(byte[] _allbytes, int _readsize, int Offset = 0)
         {
             byte[] message = new byte[_readsize];
@@ -86,7 +87,7 @@ namespace PacketHandling
             return newbytes;
         }
 
-
+        #endregion 
 
     }
 }
